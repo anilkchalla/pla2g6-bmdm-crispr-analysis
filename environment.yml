@@ -1,0 +1,14 @@
+name: pla2g6-analysis
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - pyyaml
+  - fastqc
+  - seqkit
+  - crispresso2

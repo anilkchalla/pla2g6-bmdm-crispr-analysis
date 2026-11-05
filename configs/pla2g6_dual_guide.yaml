@@ -1,0 +1,67 @@
+# Pla2g6 dual-guide target definition.
+# All coordinates are 1-based inclusive on the 298 bp amplicon in refs/.
+# Cas9 cuts between spacer positions 17 and 18 (3 bp from the PAM).
+
+experiment: Pla2g6_dual_guide
+amplicon_fasta: refs/Mm_Pla2g6_F2R2-amplicon.fa
+amplicon_length: 298
+
+cds:
+  start: 51          # initiating ATG occupies 51-53
+  end: 260
+
+primers:
+  forward: TTCTTCCAGAGCAGAGGGGCAGG     # Mm_Pla2g6-Ex2-gen-F2
+  reverse: AACGAACTGAGGGGTGCACGTC      # Mm_Pla2g6-Ex2-gen-R2
+
+guides:
+  - name: guide1
+    spacer: CGCTACTGAGGGTGTTGACG       # as ordered; matches MINUS strand
+    strand: minus
+    protospacer_plus: [71, 90]
+    pam: AGG                            # plus-strand 68-70 is CCT
+    pam_plus: [68, 70]
+    cut_between: [73, 74]
+  - name: guide2
+    spacer: GAATGTCTCCAATCGCACCT        # as ordered; matches PLUS strand
+    strand: plus
+    protospacer_plus: [194, 213]
+    pam: GGG
+    pam_plus: [214, 216]
+    cut_between: [210, 211]
+
+excision:
+  deleted_positions: [74, 210]
+  deleted_bp: 137
+  product_bp: 161
+  junction_microhomology_bp: 1          # positions 74 and 211 are both C
+  note: >
+    Left-aligned form reported because it coincides with the cut sites.
+    Right-aligning aligners report deletion of 75-211 for the same allele.
+
+background:
+  no_cut_windows: [30, 140, 170, 265]   # sham sites, identical anchor geometry
+  anchor_length: 20
+  anchor_offset: 5
+
+samples:
+  - id: Y452B3_1
+    label: Cas9_Ctrl_1
+    nucleofection: 5
+    strain: C57BL/6
+    condition: cas9_only
+  - id: Y452B3_2
+    label: Pla2g6_1
+    nucleofection: 5
+    strain: C57BL/6
+    condition: dual_guide
+  - id: Y452B3_3
+    label: Cas9_Ctrl_2
+    nucleofection: 6
+    strain: NOD
+    condition: cas9_only
+  - id: Y452B3_4
+    label: Pla2g6_2
+    nucleofection: 6
+    strain: NOD
+    condition: dual_guide

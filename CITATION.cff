@@ -1,0 +1,57 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the preprint below."
+title: "Pla2g6 dual-guide CRISPR analysis in primary mouse BMDMs"
+authors:
+  - family-names: Challa
+    given-names: Anil K.
+    email: akchalla@uab.edu
+    affiliation: "University of Alabama at Birmingham"
+    orcid: "https://orcid.org/0000-0002-3633-3304"
+  - family-names: Nair
+    given-names: Rithvikha
+    affiliation: "University of Alabama at Birmingham"
+  - family-names: Gurusamy
+    given-names: Arumugam
+    affiliation: "Shiv Nadar Institution of Eminence"
+  - family-names: Huynh
+    given-names: Thi Yen Ly
+    affiliation: "University of Alabama at Birmingham"
+  - family-names: Folmar
+    given-names: Jonathan R.
+    affiliation: "University of Alabama at Birmingham"
+  - family-names: Ahamed
+    given-names: Aaliya
+    affiliation: "The Pennsylvania State University"
+  - family-names: Chowdarapu
+    given-names: Sriharsha
+    affiliation: "King Abdullah University of Science and Technology"
+  - family-names: Ramanadham
+    given-names: Sasanka
+    email: sramvem@uab.edu
+    affiliation: "University of Alabama at Birmingham"
+    orcid: "https://orcid.org/0000-0002-1664-0657"
+license: MIT
+repository-code: "https://github.com/anilkchalla/pla2g6-bmdm-crispr-analysis"
+preferred-citation:
+  type: article
+  title: "Silent failure modes in CRISPR-Cas9 gene targeting of primary mouse macrophages: guide RNA chemistry, heteroduplex screening and amplicon-sequencing analysis"
+  year: 2026
+  journal: "bioRxiv"
+  doi: "TO_BE_ADDED"
+  authors:
+    - family-names: Challa
+      given-names: Anil K.
+    - family-names: Nair
+      given-names: Rithvikha
+    - family-names: Gurusamy
+      given-names: Arumugam
+    - family-names: Huynh
+      given-names: Thi Yen Ly
+    - family-names: Folmar
+      given-names: Jonathan R.
+    - family-names: Ahamed
+      given-names: Aaliya
+    - family-names: Chowdarapu
+      given-names: Sriharsha
+    - family-names: Ramanadham
+      given-names: Sasanka
