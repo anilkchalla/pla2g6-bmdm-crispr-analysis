@@ -45,7 +45,7 @@ same allele.
 Locates each spacer in both orientations and *requires an NGG PAM at the inferred position* before
 any quantification window is defined. This is the one step that must never be skipped. CRISPResso2
 matches a spacer by string search on either strand but does not verify the PAM, so a spacer entered
-in the wrong orientation yields a silently misplaced window — in the II run this displaced guide
+in the wrong orientation yields a silently misplaced window — in the Dataset A run this displaced guide
 1's window by 14 bp with no warning. Vendor pipelines that *infer* the spacer from the data can
 land one base away, which changes the predicted product by one base. Supply spacers explicitly and
 check them.
@@ -84,7 +84,7 @@ two- to threefold** and varies **sevenfold** with window placement (9.53% at pos
 at position 265 in the same amplicon). Treat it as a conservative bound, not a measurement.
 
 **Stage 5 — substitution audit (`scripts/snp_audit.py`).**
-Substitutions are never counted as editing. Omitting this inflated the II estimate by 10.8%
+Substitutions are never counted as editing. Omitting this inflated the Dataset A estimate by 10.8%
 relative.
 
 **Stage 6 — figures (`scripts/make_figure7.py`, `scripts/make_figures.py`).**
@@ -107,15 +107,15 @@ is controlled.
 
 | Short form | Dataset | Guide chemistry | Platform | Matched control | Samples |
 |---|---|---|---|---|---|
-| **II** | IVT–Illumina | in vitro transcribed | Illumina MiSeq | none | 1 |
-| **SO** | synthetic–ONT | chemically synthesised | ONT | none | 1 |
-| **SO-C** | synthetic–ONT, controlled | chemically synthesised | ONT | yes, per nucleofection | 4 |
+| **Dataset A** | IVT–Illumina | in vitro transcribed | Illumina MiSeq | none | 1 |
+| **Dataset B** | synthetic–ONT | chemically synthesised | ONT | none | 1 |
+| **Dataset C** | synthetic–ONT, controlled | chemically synthesised | ONT | yes, per nucleofection | 4 |
 
-The scripts prefixed `y452b3_` operate on **SO-C** (vendor order Y452B3).
+The scripts prefixed `y452b3_` operate on **Dataset C** (vendor order Y452B3).
 
 ## Headline results reproduced by this code
 
-**SO-C**: two independent nucleofections in two mouse backgrounds, each with a
+**Dataset C**: two independent nucleofections in two mouse backgrounds, each with a
 matched Cas9-only control:
 
 | Sample | Analysable reads | Total edited | Excision | Frameshift | In-frame |
@@ -202,23 +202,23 @@ Raw reads are **not** in this repository. Deposit and link them here:
 
 | Dataset | Platform | Run | Accession |
 |---|---|---|---|
-| II | Illumina MiSeq, 2×251 bp | — | PRJNA1554390, run `[SRR to be added]` |
-| SO | ONT (Plasmidsaurus) | 97K3PK | PRJNA1554390, run `[SRR to be added]` |
-| SO-C | ONT (Plasmidsaurus) | Y452B3 | PRJNA1554390, runs `[SRR to be added]` |
+| Dataset A | Illumina MiSeq, 2×251 bp | — | PRJNA1554390, run `[SRR to be added]` |
+| Dataset B | ONT (Plasmidsaurus) | 97K3PK | PRJNA1554390, run `[SRR to be added]` |
+| Dataset C | ONT (Plasmidsaurus) | Y452B3 | PRJNA1554390, runs `[SRR to be added]` |
 
 To reproduce, download the reads into `data/fastq/` and the vendor edit-analysis tables into
 `data/Y452B3_edit-analysis/`.
 
 ---
 
-## A note on the II excision figure
+## A note on the Dataset A excision figure
 
-The II library gives 0.019–0.132% excision while HMA on the same PCR product shows a clear
-161 bp band, and the SO data give 26–33%. Two mechanisms depress the Illumina number and
+The Dataset A library gives 0.019–0.132% excision while HMA on the same PCR product shows a clear
+161 bp band, and the Dataset B data give 26–33%. Two mechanisms depress the Illumina number and
 both act in the same direction: default global-alignment gap penalties discard the 137 bp deletion,
 and size-selective bead cleanup during library preparation depletes a 161 bp product that HMA and
-nanopore sequencing, which read the raw PCR product, both retain. The II value is a floor and
-should not be quoted as an editing efficiency or compared directly with the SO figures.
+nanopore sequencing, which read the raw PCR product, both retain. The Dataset A value is a floor and
+should not be quoted as an editing efficiency or compared directly with the Dataset B figures.
 
 ---
 
